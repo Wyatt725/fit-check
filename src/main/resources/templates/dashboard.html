@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Fit Check</title>
+</head>
+<body>
+<h1>Your Wardrobe</h1>
+<p><a th:href="@{/upload}">Upload a new image</a></p>
+<p>Logged in as <span th:text="${email}"></span></p>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Log Out</button>
+</form>
+
+<h2>Your Photos</h2>
+<p th:if="${personPhotos.isEmpty()}">No photos uploaded yet.</p>
+<ul>
+    <li th:each="img : ${personPhotos}" th:text="${img.originalName}"></li>
+</ul>
+
+<h2>Your Clothing</h2>
+<p th:if="${clothingPhotos.isEmpty()}">No clothing uploaded yet.</p>
+<ul>
+    <li th:each="img : ${clothingPhotos}" th:text="${img.originalName}"></li>
+</ul>
+</body>
+</html>
