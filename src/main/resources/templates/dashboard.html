@@ -15,14 +15,20 @@
 
 <h2>Your Photos</h2>
 <p th:if="${personPhotos.isEmpty()}">No photos uploaded yet.</p>
-<ul>
-    <li th:each="img : ${personPhotos}" th:text="${img.originalName}"></li>
-</ul>
+<div>
+    <div th:each="img : ${personPhotos}" style="display:inline-block; margin:10px;">
+        <img th:src="@{'/' + ${img.fileName}}" style="max-width:200px;">
+        <p th:text="${img.originalName}"></p>
+    </div>
+</div>
 
 <h2>Your Clothing</h2>
 <p th:if="${clothingPhotos.isEmpty()}">No clothing uploaded yet.</p>
-<ul>
-    <li th:each="img : ${clothingPhotos}" th:text="${img.originalName}"></li>
-</ul>
+<div>
+    <div th:each="img : ${clothingPhotos}" style="display:inline-block; margin:10px;">
+        <img th:src="@{'/' + ${img.fileName}}" style="max-width:200px;">
+        <p th:text="${img.originalName}"></p>
+    </div>
+</div>
 </body>
 </html>
